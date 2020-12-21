@@ -1,0 +1,14 @@
+<!--
+  @description       : 
+  @author            : Flistergod
+  @group             : 
+  @last modified on  : 12-04-2020
+  @last modified by  : Flistergod
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   12-04-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<aura:component access="GLOBAL" extensible="false">
+	<aura:attribute access="GLOBAL" name="pdfData" type="String" description="PDF data in base64 encoded format"/>
+	<iframe aura:id="pdfFrame" src="/resource/lcins1_pdfjs/web/viewer.html" class="pdfFrame" onload="{!c.loadpdf}"></iframe>
+</aura:component>

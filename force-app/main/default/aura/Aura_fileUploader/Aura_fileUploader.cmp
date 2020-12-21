@@ -1,0 +1,90 @@
+<!--
+  @description       : 
+  @author            : Flistergod
+  @group             : 
+  @last modified on  : 12-04-2020
+  @last modified by  : Flistergod
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   12-04-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<aura:component
+  controller="cls_FileUploader"
+  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+>
+  <aura:attribute name="pdfData" type="String" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="pdfContainer" type="Aura.Component[]" />
+  <aura:attribute name="fileData" type="String" default="" />
+  <aura:attribute
+    name="preview"
+    type="String"
+    default="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png"
+  />
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="base64" type="String" />
+  <aura:attribute name="files" type="Object" />
+  <aura:attribute name="count" type="integer" default="0" />
+
+  <!-- How to import 3rd library in aura
+	<ltng:require scripts="{!join(',',
+	$Resource.jqueryminjsv1, 
+    $Resource.pdfjs3)}"
+	afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+	-->
+
+  <lightning:card>
+    <aura:set attribute="title">
+      <lightning:icon iconName="doctype:pdf" size="small" />CV_aura
+    </aura:set>
+
+    <lightning:layout>
+      <div class="slds-col slds-size_1-of-2">
+        <div class="slds-m-around_medium">
+          <lightning:input
+            name="file1"
+            type="file"
+            label="Upload a cv please"
+            multiple="false"
+            files="{!v.files}"
+            accept=".pdf"
+            onchange="{!c.openfileUpload}"
+          />
+        </div>
+
+        <aura:if isTrue="{!v.fileData}">
+          <p>{!v.fileData}</p>
+        </aura:if>
+
+        <lightning:button
+          variant="brand"
+          label="submit"
+          title="Submit"
+          onclick="{!c.handleClick}"
+          class="slds-m-left_x-small"
+        ></lightning:button>
+      </div>
+
+      <div class="slds-col slds-size_1-of-2">
+        <aura:if isTrue="{!v.fileData}">
+          <div class="demo-only" style="width: 350px">
+            <ul class="slds-has-dividers_around-space">
+              <li class="slds-item">{!v.pdfContainer}</li>
+            </ul>
+          </div>
+
+          <aura:set attribute="else">
+            <div class="demo-only" style="width: 250px">
+              <ul class="slds-has-dividers_around-space">
+                <li class="slds-item">
+                  <img data-id="preview" src="{!v.preview}" title="Preview" />
+                </li>
+              </ul>
+            </div>
+          </aura:set>
+        </aura:if>
+      </div>
+    </lightning:layout>
+  </lightning:card>
+</aura:component>

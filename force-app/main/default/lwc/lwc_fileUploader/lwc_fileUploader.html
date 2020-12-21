@@ -1,0 +1,68 @@
+<!--
+  @description       : 
+  @author            : Flistergod
+  @group             : 
+  @last modified on  : 12-04-2020
+  @last modified by  : Flistergod
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   11-25-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+
+<template>
+    <lightning-card
+      title="CV_lwc "
+      icon-name="doctype:pdf"
+      alternative-text="Pdf file"
+    >
+      <lightning-layout>
+        <div class="slds-col slds-size_1-of-2">
+          <div class="slds-m-around_medium">
+            <lightning-input
+              type="file"
+              accept=".pdf"
+              label="Upload a cv please"
+              onchange={openfileUpload}
+            >
+            </lightning-input>
+          </div>
+          <template if:true={fileData}>
+            <p>{fileData.filename}</p>
+          </template>
+          <lightning-button
+            variant="brand"
+            label="submit"
+            title="Submit"
+            onclick={handleClick}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+        </div>
+  
+        <div class="slds-col slds-size_1-of-2">
+          <div class="demo-only" style="width: 250px">
+            <template if:false={preview1}>
+              <ul class="slds-has-dividers_around-space">
+                <li class="slds-item">
+                  <img data-id="preview" src={preview} title="Preview" />
+                </li>
+              </ul>
+            </template>
+            <template if:true={preview1}>
+              <div class="demo-only" style="width: 350px">
+                <ul class="slds-has-dividers_around-space">
+                  <li class="slds-item">
+                    <iframe
+                      data-id="pdfFrame"
+                      src="/resource/lcins1_pdfjs/web/viewer.html"
+                      class="pdfFrame"
+                      onload={loadPDF}
+                    ></iframe>
+                  </li>
+                </ul>
+              </div>
+            </template>
+          </div>
+        </div>
+      </lightning-layout>
+    </lightning-card>
+  </template>
