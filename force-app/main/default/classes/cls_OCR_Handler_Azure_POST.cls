@@ -12,9 +12,9 @@ public with sharing class cls_OCR_Handler_Azure_POST implements Queueable, Datab
     
     String url, recordId, operationId;
     String parsed_text='';
-    String HEADER_API_KEY='Ocp-Apim-Subscription-Key';
-    String API_KEY='43c8b414ad7240dc9d61fa09d209804c';
-    String ENDPOINT='https://flistergodocr.cognitiveservices.azure.com/vision/v3.2-preview.1/read/analyze?language=en&pages=1';
+    String HEADER_API_KEY='';
+    String API_KEY='';
+    String ENDPOINT='';
 
 
     public cls_OCR_Handler_Azure_POST(String url_param, String recordId_param) {
