@@ -41,8 +41,8 @@ public with sharing class cls_OCR_Space_Handler  implements Queueable, Database.
          String parsed_text='';
          
             
-         String HEADER_API_KEY='apikey';
-         String API_KEY='b9c88bd4a588957';
+         String HEADER_API_KEY='';
+         String API_KEY='';
          String LANG='eng';
          String IS_OVERLAY_REQUIRED='false';
          String ENDPOINT='https://api.ocr.space/parse/image';
