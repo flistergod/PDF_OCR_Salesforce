@@ -11,9 +11,9 @@
 public with sharing class cls_OCR_Handler_Azure_GET implements Queueable, Database.AllowsCallouts, I_OCR_Handler {
     String recordId, operationId;
     String parsed_text='';
-    String HEADER_API_KEY='Ocp-Apim-Subscription-Key';
-    String API_KEY='43c8b414ad7240dc9d61fa09d209804c';
-    String ENDPOINT_GET='https://flistergodocr.cognitiveservices.azure.com/vision/v3.2-preview.1/read/analyzeResults/';
+    String HEADER_API_KEY='';
+    String API_KEY='';
+    String ENDPOINT_GET='';
                         
 
      public cls_OCR_Handler_Azure_GET(String operationId_param, String recordId_param) {
